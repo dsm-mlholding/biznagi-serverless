@@ -12,8 +12,8 @@ permissions:
 
 # ENVIRONMENT VARIABLES
 env:
-  DEV_ROLE_ARN: {{{DEV_ROLE_ARN}}}
-  PROD_ROLE_ARN: {{{PROD_ROLE_ARN}}}
+  DEV_ROLE_ARN: arn:aws:iam::047339594152:role/biznagi-serverless
+  PROD_ROLE_ARN: arn:aws:iam::047339594152:role/biznagi-serverless
 
 jobs:
   filter:
