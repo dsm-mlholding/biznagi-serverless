@@ -9,7 +9,7 @@ Parameters:
     Default: v1
   NameService:
     Type: String
-    Default: "{{{GITHUB_REPO_NAME}}}"
+    Default: "biznagi-serverless"
     Description: "Lambda function name"
 
 Globals:
@@ -68,7 +68,7 @@ Resources:
     Type: AWS::ApiGateway::BasePathMapping
     DependsOn: PublicApiGateway
     Properties:
-      BasePath: "{{{API_BASE_PATH}}}"
+      BasePath: "https://api.mlholdingdev.com"
       DomainName: '{{resolve:secretsmanager:sam-deploy:SecretString:DomainName}}'
       RestApiId: !Ref PublicApiGateway
       Stage: !Ref PublicApiGateway.Stage
