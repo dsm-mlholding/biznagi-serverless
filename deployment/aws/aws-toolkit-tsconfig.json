@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "commonjs",
+        "outDir": "/Users/eduardogarcia/Documents/Github/sam-lambda-template-aws/dist",
+        "rootDir": ".",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "sourceRoot": "/Users/eduardogarcia/Documents/Github/sam-lambda-template-aws",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "src/**/*.ts",
+        "_tests_/handler.test.ts"
+    ]
+}

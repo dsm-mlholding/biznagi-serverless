@@ -1,0 +1,9 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "{{{GITHUB_REPO_NAME}}}"
+resolve_s3 = true
+s3_prefix = "{{{GITHUB_REPO_NAME}}}"
+confirm_changeset = false
+capabilities = "CAPABILITY_IAM"
+disable_rollback = false
+image_repositories = []
