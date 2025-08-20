@@ -42,7 +42,7 @@ Resources:
       FunctionName: !Ref NameService
       CodeUri: ../../
       Handler: dist/interfaces/aws-lambda/handler.handler
-      Description: "{{{LAMBDA_FUNCTION_DESCRIPTION}}}"
+      Description: "Deploy test"
       Events:
         PublicApi:
           Type: Api
