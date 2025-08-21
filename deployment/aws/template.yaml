@@ -11,6 +11,10 @@ Parameters:
     Type: String
     Default: "biznagi-serverless"
     Description: "Lambda function name test"
+  UserTableArn:
+    Type: String
+    Default: "arn:aws:dynamodb:us-east-1:123456789012:table/User"
+    Description: ARN de la tabla DynamoDB existente
 
 Globals:
   Function:
@@ -67,6 +71,15 @@ Resources:
             TableName: !Ref UserTable
         - Version: "2012-10-17"
           Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+                - dynamodb:DeleteItem
+                - dynamodb:Scan
+                - dynamodb:Query
+              Resource: !Ref UserTableArn
             - Effect: Allow
               Action:
                 - execute-api:Invoke
