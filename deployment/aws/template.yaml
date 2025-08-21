@@ -67,8 +67,6 @@ Resources:
             Method: post
             RestApiId: !Ref PublicApiGateway
       Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref UserTable
         - Version: "2012-10-17"
           Statement:
             - Effect: Allow
