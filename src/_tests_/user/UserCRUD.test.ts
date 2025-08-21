@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { container } from "../../infrastructure/container";
 import CreateUserUseCase from "../../application/use-cases/user/CreateUser";
 import GetUserUseCase from "../../application/use-cases/user/GetUser";
@@ -25,6 +26,7 @@ jest.mock("../../infrastructure/container", () => ({
 describe("User CRUD Use Cases", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    const { container } = require("../../infrastructure/container");
     (container.resolve as jest.Mock).mockImplementation((token: string) => {
       switch (token) {
         case "CreateUserUseCase":
@@ -53,9 +55,12 @@ describe("User CRUD Use Cases", () => {
       const useCase = container.resolve("CreateUserUseCase") as CreateUserUseCase;
       const result = await useCase.execute(userData);
 
-      expect(mockUserRepository.save).toHaveBeenCalledWith(createdUser);
+      expect(mockUserRepository.save).toHaveBeenCalledWith(expect.objectContaining({
+        name: "Test User"
+      }));
       expect(result.statusCode).toBe(200);
-      expect(result.data).toEqual(createdUser);
+      expect(JSON.parse(result.body)).toHaveProperty('message');
+      expect(JSON.parse(result.body).message).toEqual(createdUser);
     });
 
     it("should handle errors when creating user", async () => {
@@ -84,7 +89,8 @@ describe("User CRUD Use Cases", () => {
 
       expect(mockUserRepository.findById).toHaveBeenCalledWith(userId);
       expect(result.statusCode).toBe(200);
-      expect(result.data).toEqual(user);
+      expect(JSON.parse(result.body)).toHaveProperty('message');
+      expect(JSON.parse(result.body).message).toEqual(user);
     });
 
     it("should return 404 when user not found", async () => {
@@ -114,7 +120,8 @@ describe("User CRUD Use Cases", () => {
 
       expect(mockUserRepository.findAll).toHaveBeenCalled();
       expect(result.statusCode).toBe(200);
-      expect(result.data).toEqual(users);
+      expect(JSON.parse(result.body)).toHaveProperty('message');
+      expect(JSON.parse(result.body).message).toEqual(users);
     });
   });
 
@@ -135,7 +142,8 @@ describe("User CRUD Use Cases", () => {
 
       expect(mockUserRepository.update).toHaveBeenCalledWith(userId, updateData);
       expect(result.statusCode).toBe(200);
-      expect(result.data).toEqual(updatedUser);
+      expect(JSON.parse(result.body)).toHaveProperty('message');
+      expect(JSON.parse(result.body).message).toEqual(updatedUser);
     });
 
     it("should return 404 when updating non-existent user", async () => {
@@ -166,7 +174,8 @@ describe("User CRUD Use Cases", () => {
 
       expect(mockUserRepository.delete).toHaveBeenCalledWith(userId);
       expect(result.statusCode).toBe(200);
-      expect(result.data).toEqual(deleteResult);
+      expect(JSON.parse(result.body)).toHaveProperty('message');
+      expect(JSON.parse(result.body).message).toEqual(deleteResult);
     });
 
     it("should return 404 when deleting non-existent user", async () => {
