@@ -10,7 +10,7 @@ Parameters:
   NameService:
     Type: String
     Default: "biznagi-serverless"
-    Description: "Lambda function name"
+    Description: "Lambda function name test"
 
 Globals:
   Function:
