@@ -1,16 +1,16 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: SAM Lambda Template (TypeScript)
+Description: SAM Lambda Template TypeScript
 
 Parameters:
   StageName:
     Type: String
-    Description: Nombre del stage
+    Description: Nombre del stages
     Default: v1
   NameService:
     Type: String
     Default: "biznagi-serverless"
-    Description: "Lambda function name test"
+    Description: "Lambda  function name test"
   UserTableArn:
     Type: String
     Default: "arn:aws:dynamodb:us-east-1:047339594152:table/User"
