@@ -10,7 +10,7 @@ Parameters:
   NameService:
     Type: String
     Default: "biznagi-serverless"
-    Description: "Lambda function name test"
+    Description: "Lambda  function name test"
   UserTableArn:
     Type: String
     Default: "arn:aws:dynamodb:us-east-1:047339594152:table/User"
