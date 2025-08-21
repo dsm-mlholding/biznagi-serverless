@@ -68,7 +68,7 @@ Resources:
     Type: AWS::ApiGateway::BasePathMapping
     DependsOn: PublicApiGateway
     Properties:
-      BasePath: "dev" 
+      BasePath: "devops" 
       DomainName: '{{resolve:secretsmanager:sam-deploy:SecretString:DomainName}}'
       RestApiId: !Ref PublicApiGateway
       Stage: !Ref PublicApiGateway.Stage
