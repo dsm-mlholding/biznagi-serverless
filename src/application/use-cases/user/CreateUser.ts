@@ -6,6 +6,7 @@ import { v4 as uuid } from "uuid";
 
 const responseService = new ResponseService();
 
+
 @injectable()
 export default class CreateUserUseCase {
   constructor(
