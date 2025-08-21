@@ -28,17 +28,18 @@ Resources:
           Name: AWS::Include
           Parameters:
             Location: openapi/openapi.yaml
-  UserTable:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      TableName: User
-      BillingMode: PAY_PER_REQUEST
-      AttributeDefinitions:
-        - AttributeName: id
-          AttributeType: S
-      KeySchema:
-        - AttributeName: id
-          KeyType: HASH
+            
+  # UserTable:
+  #   Type: AWS::DynamoDB::Table
+  #   Properties:
+  #     TableName: User
+  #     BillingMode: PAY_PER_REQUEST
+  #     AttributeDefinitions:
+  #       - AttributeName: id
+  #         AttributeType: S
+  #     KeySchema:
+  #       - AttributeName: id
+  #         KeyType: HASH
 
   ##UNCOMMENT IF YOU WANT TO ENABLE PRIVATE API
   # PrivateApiGateway:
@@ -62,6 +63,8 @@ Resources:
             Method: post
             RestApiId: !Ref PublicApiGateway
       Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref UserTable
         - Version: "2012-10-17"
           Statement:
             - Effect: Allow
