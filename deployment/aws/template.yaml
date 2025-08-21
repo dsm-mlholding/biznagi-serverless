@@ -5,7 +5,7 @@ Description: SAM Lambda Template (TypeScript)
 Parameters:
   StageName:
     Type: String
-    Description: Nombre del stage
+    Description: Nombre del stages
     Default: v1
   NameService:
     Type: String
