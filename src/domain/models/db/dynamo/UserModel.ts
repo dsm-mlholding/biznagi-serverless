@@ -17,4 +17,6 @@ const schema = new dynamoose.Schema({
   saveUnknown: false
 });
 
-export const User_Model = model(EntityName, schema);
+export const User_Model = model(EntityName, schema, {
+  create: false // No crear tabla automáticamente
+});
