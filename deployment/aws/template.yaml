@@ -14,7 +14,7 @@ Parameters:
   UserTableArn:
     Type: String
     Default: "arn:aws:dynamodb:us-east-1:047339594152:table/User"
-    Description: ARN de la tabla DynamoDB existente
+    Description: ARN de la tabla DynamoDB
 
 Globals:
   Function:
