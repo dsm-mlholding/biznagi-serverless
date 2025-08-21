@@ -77,7 +77,7 @@ Resources:
                 - dynamodb:DeleteItem
                 - dynamodb:Scan
                 - dynamodb:Query
-                - dynamodb:DescribeTable,
+                - dynamodb:DescribeTable
               Resource: !Ref UserTableArn
             - Effect: Allow
               Action:
