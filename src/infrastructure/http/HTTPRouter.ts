@@ -8,6 +8,27 @@ export const httpRouter: HttpRouter = {
     },
     '/hello/{name}': {
       handler: userUseCases.get.hello,
+    },
+    '/users': {
+      handler: userUseCases.get['/users'],
+    },
+    '/users/{id}': {
+      handler: userUseCases.get['/users/{id}'],
+    }
+  },
+  post: {
+    '/users': {
+      handler: userUseCases.post['/users'],
+    }
+  },
+  put: {
+    '/users/{id}': {
+      handler: userUseCases.put['/users/{id}'],
+    }
+  },
+  delete: {
+    '/users/{id}': {
+      handler: userUseCases.delete['/users/{id}'],
     }
   }
 };
