@@ -2,7 +2,6 @@ version = 0.1
 [default.deploy.parameters]
 stack_name = "biznagi-serverless"
 resolve_s3 = true
-s3_bucket = "mlholding-sam-deployments"
 s3_prefix = "biznagi-serverless"
 confirm_changeset = false
 capabilities = "CAPABILITY_IAM"
